@@ -1,20 +1,20 @@
 #include <stdio.h>	
 int main(){
-    int process, completion=0;
+    int process, completion=0, i, j;
     float average_wt=0;
     printf("Enter number of processes : ");
     scanf("%d",&process);
     int arrival_time[47], burst_time[47], completion_time[47], turn_around_time[47], waiting_time[47], process_id[47];
     printf("Enter arrival time and burst time  of the processes :\n ");
-    for(int i=0; i<process; i++){
+    for(i=0; i<process; i++){
         printf("process %d Arrival Time : ",i+1);
         scanf("%d",&arrival_time[i]);
         printf("process %d Burst Time : ",i+1);
         scanf("%d",&burst_time[i]);
         process_id[i]=i+1;
     }
-    for(int i=0; i<process-1; i++){
-        for(int j=0; j<process-1-i; j++){
+    for(i=0; i<process-1; i++){
+        for(j=0; j<process-1-i; j++){
             if(arrival_time[j]>arrival_time[j+1]){
                 int temp=0, temp1=0, temp2;
                 temp=arrival_time[j];
@@ -30,7 +30,7 @@ int main(){
         }
     }
     printf("Process_no. | Arrival Time | Burst Time | Completion Time | TAT | Waiting Time\n");
-    for(int i=0; i<process; i++){
+    for(i=0; i<process; i++){
         if (completion<arrival_time[i]){
             completion=arrival_time[i];
         }
